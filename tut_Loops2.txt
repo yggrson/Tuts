@@ -1,0 +1,89 @@
+1- Write a program to count how many numbers between 1 and 100 are divisible by 3 with no remainder. Display the count on the console.
+
+2- Write a program and continuously ask the user to enter a number or "ok" to exit. Calculate the sum of all the previously entered numbers and display it on the console.
+
+3- Write a program and ask the user to enter a number. Compute the factorial of the number and print it on the console. For example, if the user enters 5, the program should calculate 5 x 4 x 3 x 2 x 1 and display it as 5! = 120.
+
+4- Write a program that picks a random number between 1 and 10. Give the user 4 chances to guess the number. If the user guesses the number, display “You won"; otherwise, display “You lost". (To make sure the program is behaving correctly, you can display the secret number on the console first.)
+
+5- Write a program and ask the user to enter a series of numbers separated by comma. Find the maximum of the numbers and display it on the console. For example, if the user enters “5,3,8,1,4", the program should display 8.
+
+
+//49, 1st
+static void Main(string[] args)
+		{
+			var sum = 0;
+			for (int i = 1; i < 100; i++)
+			{
+				if (i % 3 == 0) 
+					sum++;
+			}
+			Console.WriteLine(sum);
+		}
+
+//49, 2nd
+static void Main(string[] args)
+		{
+			var sum = 0;
+			while (true)
+			{
+				Console.WriteLine("please type number or \"ok\" to break: ");
+				var input = Console.ReadLine();
+				if (input.ToLower() == "ok")
+				{
+					break;
+				}
+				else
+				{
+					sum += Convert.ToInt32(input);
+				}
+			}
+			Console.WriteLine("Sum is: " + sum);
+		}
+
+//49, 3rd
+static void Main(string[] args)
+		{
+			Console.WriteLine("Write a number: ");
+			var number = Convert.ToInt64(Console.ReadLine());
+			var factorial = 1;
+			for (var i = 1; i <= number; i++)
+			{
+				factorial *= i;
+			}
+			Console.WriteLine("{0} is {1}", number, factorial);
+		}
+
+/49, 4th
+static void Main(string[] args)
+		{
+			var randomNumber = new Random().Next(1, 10);
+			Console.WriteLine("Four guesses :");
+			for (var i = 0; i < 4; i++)
+			{
+				var guess = Convert.ToInt32(Console.ReadLine());
+				if (randomNumber == guess)
+				{
+					Console.WriteLine("Won");
+					return;
+				}
+				Console.WriteLine("Booo");
+			}
+			Console.WriteLine("Number was :{0}", randomNumber);
+		}
+/49, 5th
+static void Main(string[] args)
+		{
+			Console.Write("Type numbers, separate with comas: ");
+			var numbersBefore = Console.ReadLine();
+			var numbersAfter = numbersBefore.Split(',');
+			var max = Convert.ToInt32(numbersAfter[0]);
+			foreach (var digit in numbersAfter)
+			{
+				var number = Convert.ToInt32(digit);
+				if (number > max)
+					max = number;
+			}
+			Console.WriteLine(max);
+		}
+
