@@ -78,4 +78,26 @@ static void Main(string[] args)
 
 //68, 3rd
 
+static void Main(string[] args)
+        {
+            Console.WriteLine("Write 24 time: ");
+            var input = Console.ReadLine();
+            var timeBlock = input.Split(':');
+            if (String.IsNullOrWhiteSpace(input))
+            {
+                Console.WriteLine("Invalid");
+                return;
+            }
+
+            var hours = Convert.ToInt32(timeBlock[0]);
+            var minutes = Convert.ToInt32(timeBlock[1]);
+
+            if (hours >= 0 && hours <= 23 && minutes >= 0 && minutes <= 59)
+                    Console.WriteLine("Ok");
+            else
+                    Console.WriteLine("Invalid");          
+        }
+
+
+//68, 4th
 
