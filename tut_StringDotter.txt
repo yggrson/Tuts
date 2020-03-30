@@ -1,4 +1,37 @@
-If string too long shorten it to nearest X amount of words/letters
+using System;
+using System.Collections.Generic;
 
+namespace ConsoleApp4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Write a long sentence: ");
+            var sentence = Console.ReadLine();
+            var summary = SummeriseText(sentence, 25);
+            Console.WriteLine(summary);
+        }
 
+        static string SummeriseText(string text, int maxLenght = 20)
+        {
+            if (text.Length < maxLenght)
+                return text;
+           
+            var words = text.Split(' ');
+            var totalCharacters = 0;
+            var summaryWords = new List<string>();
 
+            foreach (var word in words)
+            {
+                summaryWords.Add(word);
+
+                totalCharacters += word.Length + 1;
+                if (totalCharacters > maxLenght)
+                    break;
+            }
+            return String.Join(" ", summaryWords) + " ...";            
+        }
+
+    }
+}
