@@ -1,0 +1,4 @@
+If string too long shorten it to nearest X amount of words/letters
+
+
+

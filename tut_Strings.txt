@@ -122,3 +122,21 @@ static void Main(string[] args)
             Console.WriteLine(pascalSentence);
         }
     }
+
+//68, 5th
+
+static void Main(string[] args)
+        {
+            Console.WriteLine("Write a word: ");
+            var input = Console.ReadLine();
+
+            var vowels = new List<char>(new char[] { 'a', 'e', 'o', 'u', 'i' });
+            var howMany = 0;
+
+            foreach ( var letter in input)
+            {
+                if (vowels.Contains(letter))
+                    howMany++;
+            }
+            Console.WriteLine(howMany);
+        }
